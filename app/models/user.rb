@@ -5,10 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # 0 is the 'employee' by default, 1 is 'admin'
-  enum role: { employee: 0, admin: 1 }
+  enum :role, { employee: 0, admin: 1 }
 
-  # Check if user is an admin
-  def admin?
-    role == "admin"
+  validates :role, presence: true
+
+  after_initialize :set_default_role, if: :new_record?
+
+  private
+
+  def set_default_role
+    self.role ||= :employee
   end
 end
