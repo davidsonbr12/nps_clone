@@ -12,10 +12,10 @@ class User < ApplicationRecord
   after_initialize :set_default_role, if: :new_record?
 
   # Cheers SENT
-  has_many :sent_cheers, class_name: 'Cheer', foreign_key: 'sender_id', dependent: :destroy
+  has_many :sent_cheers, class_name: "Cheer", foreign_key: "sender_id", dependent: :destroy
 
   # Cheers RECEIVED
-  has_many :received_cheers, class_name: 'Cheer', foreign_key: 'recipient_id', dependent: :destroy
+  has_many :received_cheers, class_name: "Cheer", foreign_key: "recipient_id", dependent: :destroy
 
   private
 

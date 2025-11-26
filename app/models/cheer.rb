@@ -3,7 +3,7 @@ class Cheer < ApplicationRecord
   belongs_to :sender, class_name: "User", foreign_key: "sender_id"
 
   # A Cheer also belongs to a recipient, who is also a User
-  belongs_to :recipient, class_name: 'User', foreign_key: 'recipient_id'
+  belongs_to :recipient, class_name: "User", foreign_key: "recipient_id"
 
   # Validation: The Cheer must have content
   validates :content, presence: true, length: { maximum: 140 }
