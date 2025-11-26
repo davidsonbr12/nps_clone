@@ -30,6 +30,5 @@ class CheersController < ApplicationController
     def cheer_params
       # Only allow content and recipient_id to be passed through the form
       params.require(:cheer).permit(:content, :recipient_id)
-
     end
 end
